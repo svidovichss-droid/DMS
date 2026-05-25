@@ -56,7 +56,7 @@ def main():
             shutil.copy(config_example, config_path)
         
         config_manager = ConfigManager(str(config_path))
-        config = config_manager.get_config()
+        config = config_manager.config  # Используем атрибут config напрямую
         
         # Initialize database
         db_path = base_path / 'scans.db'
@@ -82,7 +82,9 @@ def main():
     except Exception as e:
         logger.error(f"Fatal error: {e}", exc_info=True)
         print(f"Error: {e}")
-        input("Press Enter to exit...")
+        # Не вызываем input() в скомпилированном приложении без консоли
+        if not getattr(sys, 'frozen', False):
+            input("Press Enter to exit...")
         return 1
     
     return 0
