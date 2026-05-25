@@ -40,12 +40,27 @@ python main.py
 ### Сборка EXE (Windows)
 
 ```bash
-# Установка PyInstaller
-pip install pyinstaller
+# Использование скрипта сборки (рекомендуется)
+build.bat
 
-# Сборка EXE
-pyinstaller --onefile --windowed --icon=resources/icon.ico main.py
+# Или вручную:
+# Установка PyInstaller
+pip install -r requirements.txt
+
+# Сборка EXE с использованием spec-файла
+pyinstaller datamatrix_scanner.spec --clean
+
+# Готовый EXE будет в папке dist/DataMatrixScanner.exe
 ```
+
+#### Настройка иконки приложения
+
+1. Создайте файл иконки `resources/icon.ico` (размер 256x256 пикселей)
+2. В файле `datamatrix_scanner.spec` измените строку:
+   ```python
+   icon=None,  # Замените на: icon='resources/icon.ico',
+   ```
+3. Пересоберите приложение: `pyinstaller datamatrix_scanner.spec --clean`
 
 ## ISO 15415 Параметры качества
 
