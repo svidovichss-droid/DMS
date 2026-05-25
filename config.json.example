@@ -1,0 +1,52 @@
+{
+    "app_name": "DataMatrix Quality Scanner",
+    "version": "1.0.0",
+    "camera": {
+        "preferred_camera": 0,
+        "resolution_width": 1280,
+        "resolution_height": 720,
+        "fps": 30,
+        "auto_exposure": true,
+        "brightness": 50,
+        "contrast": 50
+    },
+    "scanning": {
+        "auto_start": true,
+        "scan_delay_ms": 100,
+        "duplicate_filter_seconds": 2.0,
+        "min_scan_interval_ms": 500
+    },
+    "quality_thresholds": {
+        "grade_a_min": 3.5,
+        "grade_b_min": 2.5,
+        "grade_c_min": 1.5,
+        "grade_d_min": 0.5,
+        "symbol_contrast_min": 0.80,
+        "edge_determinacy_min": 0.50,
+        "axial_uniformity_max": 0.08,
+        "grid_uniformity_max": 0.08,
+        "unused_error_correction_min": 0.50,
+        "fixed_pattern_damage_min": 0.60
+    },
+    "alarms": {
+        "enable_audio": true,
+        "enable_visual": true,
+        "fail_only": true,
+        "audio_file": "resources/sounds/alarm.wav"
+    },
+    "database": {
+        "retention_days": 30,
+        "auto_cleanup": true
+    },
+    "ui": {
+        "language": "ru",
+        "theme": "dark",
+        "log_auto_scroll": true,
+        "max_log_entries": 1000
+    },
+    "export": {
+        "default_path": "",
+        "csv_delimiter": ";",
+        "include_images": false
+    }
+}
